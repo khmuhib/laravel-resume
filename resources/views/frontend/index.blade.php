@@ -65,7 +65,7 @@
                     <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a>
                     </li>
                     <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
-                            <span>Resume</span></a></li>
+                            <span>Education and Experience</span></a></li>
                     <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>
                             <span>Portfolio</span></a></li>
                     <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i>
@@ -152,7 +152,7 @@
         </section><!-- End About Section -->
 
         <!-- ======= Facts Section ======= -->
-        <section id="facts" class="facts">
+        {{-- <section id="facts" class="facts">
             <div class="container">
 
                 <div class="section-title">
@@ -206,7 +206,7 @@
                 </div>
 
             </div>
-        </section><!-- End Facts Section -->
+        </section><!-- End Facts Section --> --}}
 
         <!-- ======= Skills Section ======= -->
         <section id="skills" class="skills section-bg">
@@ -295,7 +295,7 @@
 
                 <div class="row">
                     <div class="col-lg-6" data-aos="fade-up">
-                        <h3 class="resume-title">Sumary</h3>
+                        {{-- <h3 class="resume-title">Sumary</h3>
                         <div class="resume-item pb-0">
                             <h4>Alex Smith</h4>
                             <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing
@@ -306,7 +306,7 @@
                                 <li>(123) 456-7891</li>
                                 <li>alice.barkley@example.com</li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                         <h3 class="resume-title">Education</h3>
                         <div class="resume-item">
@@ -315,6 +315,14 @@
                             <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
                             <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero
                                 voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
+                            <h5>2010 - 2014</h5>
+                            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+                            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel
+                                ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
+                                consequatur neque etlon sader mart dila</p>
                         </div>
                         <div class="resume-item">
                             <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
@@ -543,7 +551,7 @@
         </section><!-- End Services Section -->
 
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials section-bg">
+        {{-- <section id="testimonials" class="testimonials section-bg">
             <div class="container">
 
                 <div class="section-title">
@@ -641,7 +649,7 @@
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section><!-- End Testimonials Section --> --}}
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">

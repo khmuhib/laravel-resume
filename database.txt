@@ -1,0 +1,79 @@
+Home
+---
+
+name
+skill 1
+skill 2
+skill 3
+skill 4
+skill 5
+social 1
+social 2
+social 3
+social 4
+social 5
+profile img
+bg_img
+
+
+about
+----
+
+
+title
+subtitle
+short_description
+birth
+website
+degree
+phone
+city
+email
+Freelance
+long_description
+
+
+skills
+----
+
+tech_name
+parcentage
+
+
+education
+---
+
+degree
+date_range
+institute
+description
+
+Experience
+----
+
+title
+date_range
+institute
+descrition
+
+project
+-----
+
+title
+category
+client
+project date
+project url
+project description
+img 1
+img 2
+img 3
+
+
+Service
+---
+service descrtion
+
+
+
+
