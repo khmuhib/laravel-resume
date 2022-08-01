@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeSectionController;
+use App\Http\Controllers\Admin\AboutSectionController;
 use App\Http\Controllers\Admin\HomeSectionSocialController;
 
 /*
@@ -51,6 +52,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/header/social/edit/{id}', [HomeSectionSocialController::class, 'edit'])->name('admin.header.social.edit');
     Route::put('/header/social/edit/{id}', [HomeSectionSocialController::class, 'update'])->name('admin.header.social.udpate');
 
+    Route::get('/about/show', [AboutSectionController::class, 'index'])->name('admin.about.show');
+    Route::get('/about/create', [AboutSectionController::class, 'create'])->name('admin.about.create');
+    Route::post('/about/store', [AboutSectionController::class, 'store'])->name('admin.about.store');
 });
 
 Auth::routes();

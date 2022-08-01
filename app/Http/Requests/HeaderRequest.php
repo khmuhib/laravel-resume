@@ -30,7 +30,7 @@ class HeaderRequest extends FormRequest
             'skill_03'=> 'required',
             'skill_04'=> 'required',
             'skill_05'=> 'required',
-            'profile_img'=> 'required|image||dimensions:width=100,height=100',
+            'profile_img'=> 'required|image||dimensions:width=600,height=600',
             'bg_img'=> 'required|image||dimensions:width=1920,min_height=1280',
 
         ];
@@ -40,7 +40,7 @@ class HeaderRequest extends FormRequest
     public function messages()
     {
         return [
-            'profile_img.dimensions' => 'image-dimensions must be 100x100',
+            'profile_img.dimensions' => 'image-dimensions must be 600x600',
             'bg_img.dimensions' => 'Dimensions must be: width=1920,min_height=1280',
             // ..
         ];
