@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Social;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use App\Http\Requests\SocialMedia;
+use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class HomeSectionSocialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $socials = Social::all();
+        return view('admin.header.social_show', compact('socials'));
     }
 
     /**
@@ -25,7 +27,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.header.social_create');
     }
 
     /**
@@ -34,9 +36,16 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SocialMedia $request)
     {
-        //
+        $social = new Social;
+        $social->icon = $request->icon;
+        $social->link = $request->link;
+        $social->status = $request->status ?? 0;
+        $social->save();
+        return redirect()->route('admin.header.social.show')->with('success', 'Social Media Added Successfully');
+
+        //dd($request->all());
     }
 
     /**
@@ -58,7 +67,8 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $social = Social::find($id);
+        return view('admin.header.social_edit', compact('social'));
     }
 
     /**
@@ -70,7 +80,12 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $social = Social::find($id);
+        $social->icon = $request->icon;
+        $social->link = $request->link;
+        $social->status = $request->status ?? 0;
+        $social->update();
+        return redirect()->route('admin.header.social.show')->with('message', 'Social Media Update Successfully');
     }
 
     /**

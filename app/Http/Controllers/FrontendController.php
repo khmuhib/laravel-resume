@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Header;
+use App\Models\Social;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 
-class DashboardController extends Controller
+class FrontendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $header = Header::all()->first();
+        $socials = Social::all();
+        return view('frontend.index' , compact('header', 'socials'));
     }
 
     /**

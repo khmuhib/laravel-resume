@@ -47,14 +47,21 @@
         <div class="d-flex flex-column">
 
             <div class="profile">
-                <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-                <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+                <img src="{{ asset('uploads/admin/header/img/' . $header->profile_img) }}" alt="kh Muhib" height="100px"
+                    width="100px" class="img-fluid rounded-circle">
+                <h1 class="text-light"><a href="index.html">{{ $header->name }}</a></h1>
                 <div class="social-links mt-3 text-center">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    @foreach ($socials as $social)
+                        @if ($social->status == 1)
+                            <a href="{{ $social->link }}" class="twitter" target="_blank"><i
+                                    class="{{ $social->icon }}"></i></a>
+                        @endif
+                    @endforeach
+                    {{-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                     <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                     <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                     <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> --}}
                 </div>
             </div>
 
@@ -78,11 +85,16 @@
     </header><!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center"
+        style="background-image: url('uploads/admin/header/img/{{ $header->bg_img }}')">
         <div class="hero-container" data-aos="fade-in">
-            <h1>Alex Smith</h1>
-            <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+            <h1>{{ $header->name }}</h1>
+            <p>I'm <span class="typed"
+                    data-typed-items="{{ $header->skill_01 }}, {{ $header->skill_02 }}, {{ $header->skill_03 }}, {{ $header->skill_04 }}, {{ $header->skill_05 }}"></span>
+            </p>
+
         </div>
+        {{-- <button class="btn btn-warning">Download CV</button> --}}
     </section><!-- End Hero -->
 
     <main id="main">
@@ -399,7 +411,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -410,7 +423,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -421,7 +435,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -432,7 +447,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -443,7 +459,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -454,7 +471,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -465,7 +483,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -476,7 +495,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -487,7 +507,8 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
                                     class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                                <a href="{{ url('/portfolio') }}" title="More Details"><i class="bx bx-link"></i></a>
+                                <a href="{{ url('/portfolio') }}" title="More Details"><i
+                                        class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
@@ -733,9 +754,9 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <div class="copyright">
+            {{-- <div class="copyright">
                 &copy; Copyright <strong><span>iPortfolio</span></strong>
-            </div>
+            </div> --}}
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
