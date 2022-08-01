@@ -55,6 +55,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/about/show', [AboutSectionController::class, 'index'])->name('admin.about.show');
     Route::get('/about/create', [AboutSectionController::class, 'create'])->name('admin.about.create');
     Route::post('/about/store', [AboutSectionController::class, 'store'])->name('admin.about.store');
+    Route::get('/about/edit/{id}', [AboutSectionController::class, 'edit'])->name('admin.about.edit');
+    Route::put('/about/edit/{id}', [AboutSectionController::class, 'update'])->name('admin.about.update');
+    Route::get('/about/delete/{id}', [AboutSectionController::class, 'destroy'])->name('admin.about.delete');
 });
 
 Auth::routes();

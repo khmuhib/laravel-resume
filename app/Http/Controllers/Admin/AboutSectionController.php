@@ -16,7 +16,8 @@ class AboutSectionController extends Controller
      */
     public function index()
     {
-        return view('admin.about.index');
+        $abouts = About::all();
+        return view('admin.about.index', compact('abouts'));
     }
 
     /**
@@ -72,7 +73,8 @@ class AboutSectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $about = About::find($id);
+        return view('admin.about.edit', compact('about'));
     }
 
     /**
@@ -84,7 +86,21 @@ class AboutSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $about = About::find($id);
+        $about->title = $request->title;
+        $about->subtitle = $request->subtitle;
+        $about->short_description = $request->short_description;
+        $about->birth = $request->birth;
+        $about->link = $request->link;
+        $about->degree = $request->degree;
+        $about->phone = $request->phone;
+        $about->email = $request->email;
+        $about->city = $request->city;
+        $about->freelance = $request->freelance;
+        $about->long_description = $request->long_description;
+        $about->update();
+        return redirect()->back()->with('message','About Data Updated Successfully');
+
     }
 
     /**
@@ -95,6 +111,8 @@ class AboutSectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $about = About::find($id);
+        $about->delete();
+        return redirect()->back()->with('message','About Data Deleted Successfully');
     }
 }

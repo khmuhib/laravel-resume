@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Header;
 use App\Models\Social;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class FrontendController extends Controller
     {
         $header = Header::all()->first();
         $socials = Social::all();
-        return view('frontend.index' , compact('header', 'socials'));
+        $about = About::all()->first();
+        return view('frontend.index' , compact('header', 'socials', 'about'));
     }
 
     /**

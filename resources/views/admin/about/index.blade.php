@@ -40,30 +40,29 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($abouts as $about)
                         <tr>
-                            <th scope="row">asdasdsa</th>
-                            <td>dasda</td>
-                            <td>dasda</td>
-                            <td>adsdad</td>
-                            <td>dasdsa</td>
-                            <td>dsadas</td>
-                            <td>dsadas</td>
-                            <td>dsadas</td>
-                            <td>dsadas</td>
-                            <td>dsadas</td>
-                            <td>
-                                <img src="" alt="dasda" height="50" width="50">
-                            </td>
-                            <td>
-                                <img src="" alt="dasda" height="50" width="50">
-                            </td>
+                            <th scope="row">{{ $about->id }}</th>
+                            <td>{{ $about->title }}</td>
+                            <td>{{ $about->subtitle }}</td>
+                            <td>{{ $about->short_description }}</td>
+                            <td>{{ $about->birth }}</td>
+                            <td>{{ $about->link }}</td>
+                            <td>{{ $about->degree }}</td>
+                            <td>{{ $about->phone }}</td>
+                            <td>{{ $about->email }}</td>
+                            <td>{{ $about->city }}</td>
+                            <td>{{ $about->freelance }}</td>
+                            <td>{{ $about->long_description }}</td>
                             <td>
                                 <div class="col">
-                                    <a href="" class="btn btn-primary">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <a href="{{ route('admin.about.edit',[$about->id]) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('admin.about.delete',[$about->id]) }}" class="btn btn-danger">Delete</a>
                                 </div>
                             </td>
                         </tr>
+                            
+                        @endforeach
                     </tbody>
                 </table>
 

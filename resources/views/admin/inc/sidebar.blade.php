@@ -58,8 +58,8 @@
                         <h6 class="collapse-header">About section:</h6>
                         <a class="collapse-item" href="{{ route('admin.about.show') }}">Show About</a>
                         <a class="collapse-item" href="{{ route('admin.about.create') }}">Add About</a>
-                        <a class="collapse-item" href="utilities-animation.html">ShowDescription </a>
-                        <a class="collapse-item" href="utilities-animation.html">Add Description </a>
+                        {{-- <a class="collapse-item" href="utilities-animation.html">ShowDescription </a>
+                        <a class="collapse-item" href="utilities-animation.html">Add Description </a> --}}
                     </div>
                 </div>
             </li>
