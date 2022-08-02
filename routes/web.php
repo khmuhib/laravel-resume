@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\AboutSectionController;
 use App\Http\Controllers\Admin\SkillSectionController;
 use App\Http\Controllers\Admin\EducationSectionController;
+use App\Http\Controllers\Admin\ExperienceSectionController;
 use App\Http\Controllers\Admin\HomeSectionSocialController;
 
 /*
@@ -74,6 +75,13 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/education/edit/{id}', [EducationSectionController::class, 'edit'])->name('admin.education.edit');
     Route::put('/education/update/{id}', [EducationSectionController::class, 'update'])->name('admin.education.update');
     Route::get('/education/delete/{id}', [EducationSectionController::class, 'destroy'])->name('admin.education.delete');
+
+    Route::get('/experience/show', [ExperienceSectionController::class, 'index'])->name('admin.experience.show');
+    Route::get('/experience/create', [ExperienceSectionController::class, 'create'])->name('admin.experience.create');
+    Route::post('/experience/store', [ExperienceSectionController::class, 'store'])->name('admin.experience.store');
+    Route::get('/experience/edit/{id}', [ExperienceSectionController::class, 'edit'])->name('admin.experience.edit');
+    Route::put('/experience/update/{id}', [ExperienceSectionController::class, 'update'])->name('admin.experience.update');
+    Route::get('/experience/delete/{id}', [ExperienceSectionController::class, 'destroy'])->name('admin.experience.delete');
 });
 
 Auth::routes();

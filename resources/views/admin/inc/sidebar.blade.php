@@ -100,38 +100,22 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#education"
-                    aria-expanded="true" aria-controls="education">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#experience"
+                    aria-expanded="true" aria-controls="experience">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Education</span>
+                    <span>Experience</span>
                 </a>
-                <div id="education" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="experience" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Education section:</h6>
-                        <a class="collapse-item" href="{{ route('admin.education.show') }}">Show Education</a>
-                        <a class="collapse-item" href="{{ route('admin.education.create') }}">Add Education</a>
+                        <h6 class="collapse-header">Experience section:</h6>
+                        <a class="collapse-item" href="{{ route('admin.experience.show') }}">Show Experience</a>
+                        <a class="collapse-item" href="{{ route('admin.experience.create') }}">Add Experience</a>
                         {{-- <a class="collapse-item" href="utilities-animation.html">ShowDescription </a>
                         <a class="collapse-item" href="utilities-animation.html">Add Description </a> --}}
                     </div>
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#education"
-                    aria-expanded="true" aria-controls="education">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Education</span>
-                </a>
-                <div id="education" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Education section:</h6>
-                        <a class="collapse-item" href="{{ route('admin.education.show') }}">Show Education</a>
-                        <a class="collapse-item" href="{{ route('admin.education.create') }}">Add Education</a>
-                        {{-- <a class="collapse-item" href="utilities-animation.html">ShowDescription </a>
-                        <a class="collapse-item" href="utilities-animation.html">Add Description </a> --}}
-                    </div>
-                </div>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
