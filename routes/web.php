@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\AboutSectionController;
 use App\Http\Controllers\Admin\SkillSectionController;
+use App\Http\Controllers\Admin\EducationSectionController;
 use App\Http\Controllers\Admin\HomeSectionSocialController;
 
 /*
@@ -66,6 +67,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/skill/edit/{id}', [SkillSectionController::class, 'edit'])->name('admin.skill.edit');
     Route::put('/skill/udpate/{id}', [SkillSectionController::class, 'update'])->name('admin.skill.update');
     Route::get('/skill/delete/{id}', [SkillSectionController::class, 'destroy'])->name('admin.skill.delete');
+
+    Route::get('/education/show', [EducationSectionController::class, 'index'])->name('admin.education.show');
+    Route::get('/education/create', [EducationSectionController::class, 'create'])->name('admin.education.create');
 });
 
 Auth::routes();
