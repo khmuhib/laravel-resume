@@ -46,7 +46,7 @@ education
 ---
 
 degree
-date_range
+session
 institute
 description
 
@@ -54,7 +54,8 @@ Experience
 ----
 
 title
-date_range
+starting_data
+ending_date
 institute
 descrition
 

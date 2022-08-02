@@ -110,7 +110,8 @@
 
                 <div class="row">
                     <div class="col-lg-4" data-aos="fade-right">
-                        <img src="{{ asset('uploads/admin/header/img/'.$header->profile_img) }}" class="img-fluid" alt="">
+                        <img src="{{ asset('uploads/admin/header/img/' . $header->profile_img) }}" class="img-fluid"
+                            alt="">
                     </div>
                     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                         <h3>{{ $about->title }}</h3>
@@ -120,27 +121,40 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <ul>
+<<<<<<< HEAD
                                     <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{ $about->birth }}</span></li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
                                         <span>{{ $about->link }}</span>
+=======
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong>
+                                        <span>{{ $about->birth }}</span>
                                     </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{ $about->phone }}</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{ $about->city }}</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
+                                        <span>{{ $about->link }}</span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                                        <span>{{ $about->phone }}</span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
+                                        <span>{{ $about->city }}</span>
+>>>>>>> a91561633552520dc3628c7a0d633167d254f206
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-lg-6">
                                 <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> 
-                                    <span>
-                                        <?php 
-                                            
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong>
+                                        <span>
+                                            <?php
+
                                             $birth = new DateTime($about->birth);
                                             $today = new DateTime();
                                             $age = $today->diff($birth)->y;
                                             echo $age;
-                                            
+
                                             ?>
-                                    </span></li>
+                                        </span>
+                                    </li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong>
                                         <span>{{ $about->degree }}</span>
                                     </li>
@@ -231,58 +245,39 @@
                 <div class="row skills-content">
 
                     <div class="col-lg-6" data-aos="fade-up">
+                        <h6>Frontend</h6>
 
-                        <div class="progress">
-                            <span class="skill">HTML <i class="val">100%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">CSS <i class="val">90%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">JavaScript <i class="val">75%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
+                        @foreach ($skills as $skill)
+                            @if ($skill->skill_type == 'frontend')
+                                <div class="progress">
+                                    <span class="skill">{{ $skill->skill }} <i
+                                            class="val">{{ $skill->percentage }}%</i></span>
+                                    <div class="progress-bar-wrap">
+                                        <div class="progress-bar" role="progressbar"
+                                            aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
 
                     </div>
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-                        <div class="progress">
-                            <span class="skill">PHP <i class="val">80%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">WordPress/CMS <i class="val">90%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">Photoshop <i class="val">55%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
+                        <h6>Backend</h6>
+                        @foreach ($skills as $skill)
+                            @if ($skill->skill_type == 'backend')
+                                <div class="progress">
+                                    <span class="skill">{{ $skill->skill }} <i
+                                            class="val">{{ $skill->percentage }}%</i></span>
+                                    <div class="progress-bar-wrap">
+                                        <div class="progress-bar" role="progressbar"
+                                            aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
 
                     </div>
 
@@ -303,45 +298,6 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6" data-aos="fade-up">
-                        {{-- <h3 class="resume-title">Sumary</h3>
-                        <div class="resume-item pb-0">
-                            <h4>Alex Smith</h4>
-                            <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing
-                                    and developing user-centered digital/print marketing material from initial concept
-                                    to final, polished deliverable.</em></p>
-                            <ul>
-                                <li>Portland par 127,Orlando, FL</li>
-                                <li>(123) 456-7891</li>
-                                <li>alice.barkley@example.com</li>
-                            </ul>
-                        </div> --}}
-
-                        <h3 class="resume-title">Education</h3>
-                        <div class="resume-item">
-                            <h4>Master of Fine Arts &amp; Graphic Design</h4>
-                            <h5>2015 - 2016</h5>
-                            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-                            <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero
-                                voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-                            <h5>2010 - 2014</h5>
-                            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-                            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel
-                                ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                consequatur neque etlon sader mart dila</p>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-                            <h5>2010 - 2014</h5>
-                            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-                            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel
-                                ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                consequatur neque etlon sader mart dila</p>
-                        </div>
-                    </div>
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="resume-title">Professional Experience</h3>
                         <div class="resume-item">
@@ -372,6 +328,30 @@
                                     managers</li>
                             </ul>
                         </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-up">
+                        {{-- <h3 class="resume-title">Sumary</h3>
+                        <div class="resume-item pb-0">
+                            <h4>Alex Smith</h4>
+                            <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing
+                                    and developing user-centered digital/print marketing material from initial concept
+                                    to final, polished deliverable.</em></p>
+                            <ul>
+                                <li>Portland par 127,Orlando, FL</li>
+                                <li>(123) 456-7891</li>
+                                <li>alice.barkley@example.com</li>
+                            </ul>
+                        </div> --}}
+
+                        <h3 class="resume-title">Education</h3>
+                        @foreach ($educations as $education)
+                            <div class="resume-item">
+                                <h4>{{ $education->degree }}</h4>
+                                <h5>{{ $education->session }}</h5>
+                                <p><em>{{ $education->institute }}</em></p>
+                                <p>{{ $education->description }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
 

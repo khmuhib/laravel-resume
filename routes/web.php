@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\AboutSectionController;
+use App\Http\Controllers\Admin\SkillSectionController;
+use App\Http\Controllers\Admin\EducationSectionController;
 use App\Http\Controllers\Admin\HomeSectionSocialController;
 
 /*
@@ -58,6 +60,20 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/about/edit/{id}', [AboutSectionController::class, 'edit'])->name('admin.about.edit');
     Route::put('/about/edit/{id}', [AboutSectionController::class, 'update'])->name('admin.about.update');
     Route::get('/about/delete/{id}', [AboutSectionController::class, 'destroy'])->name('admin.about.delete');
+
+    Route::get('/skill/show', [SkillSectionController::class, 'index'])->name('admin.skill.show');
+    Route::get('/skill/create', [SkillSectionController::class, 'create'])->name('admin.skill.create');
+    Route::post('/skill/store', [SkillSectionController::class, 'store'])->name('admin.skill.store');
+    Route::get('/skill/edit/{id}', [SkillSectionController::class, 'edit'])->name('admin.skill.edit');
+    Route::put('/skill/udpate/{id}', [SkillSectionController::class, 'update'])->name('admin.skill.update');
+    Route::get('/skill/delete/{id}', [SkillSectionController::class, 'destroy'])->name('admin.skill.delete');
+
+    Route::get('/education/show', [EducationSectionController::class, 'index'])->name('admin.education.show');
+    Route::get('/education/create', [EducationSectionController::class, 'create'])->name('admin.education.create');
+    Route::post('/education/store', [EducationSectionController::class, 'store'])->name('admin.education.store');
+    Route::get('/education/edit/{id}', [EducationSectionController::class, 'edit'])->name('admin.education.edit');
+    Route::put('/education/update/{id}', [EducationSectionController::class, 'update'])->name('admin.education.update');
+    Route::get('/education/delete/{id}', [EducationSectionController::class, 'destroy'])->name('admin.education.delete');
 });
 
 Auth::routes();
