@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Skill;
 use App\Models\Header;
 use App\Models\Social;
+use App\Models\Education;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -21,7 +22,8 @@ class FrontendController extends Controller
         $socials = Social::all();
         $about = About::all()->first();
         $skills = Skill::all();
-        return view('frontend.index' , compact('header', 'socials', 'about', 'skills'));
+        $educations = Education::all();
+        return view('frontend.index' , compact('header', 'socials', 'about', 'skills', 'educations'));
     }
 
     /**

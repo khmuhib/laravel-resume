@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Education;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\EducationRequest;
 
 class EducationSectionController extends Controller
 {
@@ -14,7 +16,8 @@ class EducationSectionController extends Controller
      */
     public function index()
     {
-        return 'index';
+        $educations = Education::all();
+        return view('admin.education.index', compact('educations'));
     }
 
     /**
@@ -24,7 +27,7 @@ class EducationSectionController extends Controller
      */
     public function create()
     {
-        return 'create';
+        return view('admin.education.create');
     }
 
     /**
@@ -33,9 +36,15 @@ class EducationSectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EducationRequest $request)
     {
-        //
+        $education = new Education;
+        $education->degree = $request->degree;
+        $education->institute = $request->institute;
+        $education->session = $request->session;
+        $education->description = $request->description;
+        $education->save();
+        return redirect()->back()->with('message', 'Education added successfully.');
     }
 
     /**
@@ -57,7 +66,8 @@ class EducationSectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $education = Education::find($id);
+        return view('admin.education.edit', compact('education'));
     }
 
     /**
@@ -67,9 +77,15 @@ class EducationSectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EducationRequest $request, $id)
     {
-        //
+        $education = Education::find($id);
+        $education->degree = $request->degree;
+        $education->institute = $request->institute;
+        $education->session = $request->session;
+        $education->description = $request->description;
+        $education->update();
+        return redirect()->back()->with('message', 'Education updated successfully.');
     }
 
     /**
@@ -80,6 +96,8 @@ class EducationSectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $education = Education::find($id);
+        $education->delete();
+        return redirect()->back()->with('message', 'Education deleted successfully.');
     }
 }

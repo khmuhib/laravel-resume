@@ -70,6 +70,10 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('/education/show', [EducationSectionController::class, 'index'])->name('admin.education.show');
     Route::get('/education/create', [EducationSectionController::class, 'create'])->name('admin.education.create');
+    Route::post('/education/store', [EducationSectionController::class, 'store'])->name('admin.education.store');
+    Route::get('/education/edit/{id}', [EducationSectionController::class, 'edit'])->name('admin.education.edit');
+    Route::put('/education/update/{id}', [EducationSectionController::class, 'update'])->name('admin.education.update');
+    Route::get('/education/delete/{id}', [EducationSectionController::class, 'destroy'])->name('admin.education.delete');
 });
 
 Auth::routes();
