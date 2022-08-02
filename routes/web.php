@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\AboutSectionController;
 use App\Http\Controllers\Admin\SkillSectionController;
+use App\Http\Controllers\Admin\ProjectSectionController;
 use App\Http\Controllers\Admin\EducationSectionController;
 use App\Http\Controllers\Admin\ExperienceSectionController;
 use App\Http\Controllers\Admin\HomeSectionSocialController;
@@ -82,6 +83,13 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/experience/edit/{id}', [ExperienceSectionController::class, 'edit'])->name('admin.experience.edit');
     Route::put('/experience/update/{id}', [ExperienceSectionController::class, 'update'])->name('admin.experience.update');
     Route::get('/experience/delete/{id}', [ExperienceSectionController::class, 'destroy'])->name('admin.experience.delete');
+
+    Route::get('/project/show', [ProjectSectionController::class, 'index'])->name('admin.project.show');
+    Route::get('/project/create', [ProjectSectionController::class, 'create'])->name('admin.project.create');
+    Route::post('/project/store', [ProjectSectionController::class, 'store'])->name('admin.project.store');
+    Route::get('/project/edit/{id}', [ProjectSectionController::class, 'edit'])->name('admin.project.edit');
+    Route::put('/project/update/{id}', [ProjectSectionController::class, 'update'])->name('admin.project.update');
+    Route::get('/project/delete/{id}', [ProjectSectionController::class, 'destroy'])->name('admin.project.delete');
 });
 
 Auth::routes();
