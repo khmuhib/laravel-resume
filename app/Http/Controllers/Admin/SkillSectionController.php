@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
 use App\Models\Skill;
-use App\Models\Header;
-use App\Models\Social;
 use Illuminate\Http\Request;
+use App\Http\Requests\SkillRequest;
+use App\Http\Controllers\Controller;
 
-class FrontendController extends Controller
+class SkillSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +16,8 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $header = Header::all()->first();
-        $socials = Social::all();
-        $about = About::all()->first();
         $skills = Skill::all();
-        return view('frontend.index' , compact('header', 'socials', 'about', 'skills'));
+        return view('admin.skill.index', compact('skills'));
     }
 
     /**
@@ -31,7 +27,7 @@ class FrontendController extends Controller
      */
     public function create()
     {
-        //
+        return \view('admin.skill.create');
     }
 
     /**
@@ -40,9 +36,14 @@ class FrontendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SkillRequest $request)
     {
-        //
+        $skill = new Skill;
+        $skill->skill = $request->skill;
+        $skill->percentage = $request->percentage;
+        $skill->skill_type = $request->skill_type;
+        $skill->save();
+        return redirect()->back()->with('message', 'Skill added successfully');
     }
 
     /**
@@ -64,7 +65,8 @@ class FrontendController extends Controller
      */
     public function edit($id)
     {
-        //
+        $skill = Skill::find($id);
+        return view('admin.skill.edit', compact('skill'));
     }
 
     /**
@@ -74,9 +76,15 @@ class FrontendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SkillRequest $request, $id)
     {
-        //
+        $skill = Skill::find($id);
+        $skill->skill = $request->skill;
+        $skill->percentage = $request->percentage;
+        $skill->skill_type = $request->skill_type;
+        $skill->update();
+        return redirect()->back()->with('message', 'Skill updated successfully');
+
     }
 
     /**
@@ -87,6 +95,8 @@ class FrontendController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $skill = Skill::find($id);
+        $skill->delete();
+        return redirect()->back()->with('message', 'Skill deleted successfully');
     }
 }
