@@ -20,7 +20,8 @@
                     href="{{ route('admin.project.show') }}">Show Project Data</a></h1>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.project.update', [$project->id]) }}" method="post", enctype="multipart/form-data">
+            <form action="{{ route('admin.project.update', [$project->id]) }}" method="post",
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -36,8 +37,12 @@
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <input type="text" class="form-control" placeholder="Enter Project Category" name="category"
-                        value="{{ $project->category }}">
+                    <select class="form-control" name="category">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" @if ($project->category_id == $category->id) selected @endif>
+                                {{ $category->category }}</option>
+                        @endforeach
+                    </select>
                     <span class="text-danger">{{ $errors->first('category') }}</span>
                 </div>
                 <div class="form-group">
@@ -59,23 +64,22 @@
                     <span class="text-danger">{{ $errors->first('project_url') }}</span>
                 </div>
                 <div class="form-group">
-                    <label>Image 01	</label>
+                    <label>Image 01 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 01" name="img_01">
-                    <span class="text-danger">{{ $errors->first('img_01') }}</span> <br> <br>
-                    <img src="{{ asset('uploads/admin/project/img/'.$project->img_01) }}" alt="dsadas" width="150" height="150">
-                    
+                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_01) }}" alt="asda"> <br>
+                    <span class="text-danger">{{ $errors->first('img_01') }}</span>
                 </div>
                 <div class="form-group">
-                    <label>Image 02	</label>
+                    <label>Image 02 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 02" name="img_02">
-                    <span class="text-danger">{{ $errors->first('img_02') }}</span> <br> <br>
-                    <img src="{{ asset('uploads/admin/project/img/'.$project->img_02) }}" alt="dsadas" width="150" height="150">
+                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_02) }}" alt="asda"> <br>
+                    <span class="text-danger">{{ $errors->first('img_02') }}</span>
                 </div>
                 <div class="form-group">
-                    <label>Image 03	</label>
+                    <label>Image 03 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 03" name="img_03">
-                    <span class="text-danger">{{ $errors->first('img_03') }}</span> <br> <br>
-                    <img src="{{ asset('uploads/admin/project/img/'.$project->img_03) }}" alt="dsadas" width="150" height="150">
+                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_03) }}" alt="asda"> <br>
+                    <span class="text-danger">{{ $errors->first('img_03') }}</span>
                 </div>
 
 

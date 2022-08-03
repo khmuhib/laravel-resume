@@ -39,31 +39,37 @@
                     </thead>
                     <tbody>
                         @foreach ($projects as $project)
-                        <tr>
-                            <th scope="row">{{ $project->id }}</th>
-                            <td>{{ $project->title }}</td>
-                            <td>{{ $project->description }}</td>
-                            <td>{{ $project->category }}</td>
-                            <td>{{ $project->client }}</td>
-                            <td>{{ $project->project_date }}</td>
-                            <td>{{ $project->project_url }}</td>
-                            <td>
-                                <img src="{{ asset('uploads/admin/project/img/'.$project->img_01) }}" alt="ffas" height="50" width="50">
-                            </td>
-                            <td>
-                                <img src="{{ asset('uploads/admin/project/img/'.$project->img_02) }}" alt="ffas" height="50" width="50">
-                            </td>
-                            <td>
-                                <img src="{{ asset('uploads/admin/project/img/'.$project->img_03) }}" alt="ffas" height="50" width="50">
-                            </td>
-                            <td>
-                                <div class="col">
-                                    <a href="{{ route('admin.project.edit', [$project->id]) }}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('admin.project.delete', [$project->id]) }}" class="btn btn-danger">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                            
+                            <tr>
+                                <th scope="row">{{ $project->id }}</th>
+                                <td>{{ $project->title }}</td>
+                                <td>{{ $project->description }}</td>
+                                <td>
+                                    {{ $project->category->category }}
+                                </td>
+                                <td>{{ $project->client }}</td>
+                                <td>{{ $project->project_date }}</td>
+                                <td>{{ $project->project_url }}</td>
+                                <td>
+                                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_01) }}"
+                                        alt="ffas" height="50" width="50">
+                                </td>
+                                <td>
+                                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_02) }}"
+                                        alt="ffas" height="50" width="50">
+                                </td>
+                                <td>
+                                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_03) }}"
+                                        alt="ffas" height="50" width="50">
+                                </td>
+                                <td>
+                                    <div class="col">
+                                        <a href="{{ route('admin.project.edit', [$project->id]) }}"
+                                            class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('admin.project.delete', [$project->id]) }}"
+                                            class="btn btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

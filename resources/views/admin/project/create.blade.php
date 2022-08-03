@@ -35,8 +35,12 @@
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <input type="text" class="form-control" placeholder="Enter Project Category" name="category"
-                        value="{{ old('category') }}">
+                    <select class="form-control" name="category">
+                        <option value="">Select Category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->category }}</option>
+                        @endforeach
+                    </select>
                     <span class="text-danger">{{ $errors->first('category') }}</span>
                 </div>
                 <div class="form-group">
@@ -58,17 +62,17 @@
                     <span class="text-danger">{{ $errors->first('project_url') }}</span>
                 </div>
                 <div class="form-group">
-                    <label>Image 01	</label>
+                    <label>Image 01 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 01" name="img_01">
                     <span class="text-danger">{{ $errors->first('img_01') }}</span>
                 </div>
                 <div class="form-group">
-                    <label>Image 02	</label>
+                    <label>Image 02 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 02" name="img_02">
                     <span class="text-danger">{{ $errors->first('img_02') }}</span>
                 </div>
                 <div class="form-group">
-                    <label>Image 03	</label>
+                    <label>Image 03 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 03" name="img_03">
                     <span class="text-danger">{{ $errors->first('img_03') }}</span>
                 </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProjectSectionController;
 use App\Http\Controllers\Admin\EducationSectionController;
 use App\Http\Controllers\Admin\ExperienceSectionController;
 use App\Http\Controllers\Admin\HomeSectionSocialController;
+use App\Http\Controllers\Admin\ProjectCategorySectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,8 +89,16 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/project/create', [ProjectSectionController::class, 'create'])->name('admin.project.create');
     Route::post('/project/store', [ProjectSectionController::class, 'store'])->name('admin.project.store');
     Route::get('/project/edit/{id}', [ProjectSectionController::class, 'edit'])->name('admin.project.edit');
-    Route::put('/project/update/{id}', [ProjectSectionController::class, 'update'])->name('admin.project.update');
     Route::get('/project/delete/{id}', [ProjectSectionController::class, 'destroy'])->name('admin.project.delete');
+    Route::put('/project/update/{id}', [ProjectSectionController::class, 'update'])->name('admin.project.update');
+
+
+    Route::get('/category/show', [ProjectCategorySectionController::class, 'index'])->name('admin.category.show');
+    Route::get('/category/create', [ProjectCategorySectionController::class, 'create'])->name('admin.category.create');
+    Route::post('/category/store', [ProjectCategorySectionController::class, 'store'])->name('admin.category.store');
+    Route::get('/category/edit/{id}', [ProjectCategorySectionController::class, 'edit'])->name('admin.category.edit');
+    Route::put('/category/edit/{id}', [ProjectCategorySectionController::class, 'update'])->name('admin.category.update');
+    Route::get('/category/delete/{id}', [ProjectCategorySectionController::class, 'destroy'])->name('admin.category.delete');
 });
 
 Auth::routes();

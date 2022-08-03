@@ -15,17 +15,17 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-
             $table->string('title');
             $table->string('description');
-            $table->string('category');
+            $table->integer('category_id')->unsigned();
+            $table->index('category_id');
+            $table->foreign('category_id')->references('id')->on('project_categories')->onDelete('cascade');
             $table->string('client');
             $table->string('project_date');
             $table->string('project_url');
             $table->string('img_01');
             $table->string('img_02');
             $table->string('img_03');
-            
             $table->timestamps();
         });
     }

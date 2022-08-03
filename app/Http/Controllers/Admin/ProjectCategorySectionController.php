@@ -1,18 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
-use App\Models\Skill;
-use App\Models\Header;
-use App\Models\Social;
-use App\Models\Project;
-use App\Models\Education;
-use App\Models\Experience;
 use Illuminate\Http\Request;
 use App\Models\ProjectCategory;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 
-class FrontendController extends Controller
+class ProjectCategorySectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +16,8 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $header = Header::all()->first();
-        $socials = Social::all();
-        $about = About::all()->first();
-        $skills = Skill::all();
-        $educations = Education::all();
-        $experiences = Experience::all();
         $categories = ProjectCategory::all();
-        $projects = Project::all();
-        return view('frontend.index' , compact('header', 'socials', 'about', 'skills', 'educations', 'experiences', 'categories', 'projects'));
+        return view('admin.project.index_category', compact('categories'));
     }
 
     /**
@@ -39,7 +27,8 @@ class FrontendController extends Controller
      */
     public function create()
     {
-        //
+        $categories = new ProjectCategory;
+        return view('admin.project.create_category', compact('categories'));
     }
 
     /**
@@ -48,9 +37,13 @@ class FrontendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+
+        $category = new ProjectCategory;
+        $category->category = $request->category;
+        $category->save();
+        return redirect()->route('admin.category.show')->with('message', 'Category created successfully.');
     }
 
     /**
@@ -72,7 +65,8 @@ class FrontendController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = ProjectCategory::find($id);
+        return view('admin.project.edit_category', compact('category'));
     }
 
     /**
@@ -84,7 +78,10 @@ class FrontendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = ProjectCategory::find($id);
+        $category->category = $request->category;
+        $category->update();
+        return redirect()->route('admin.category.show')->with('message', 'Category updated successfully.');
     }
 
     /**
@@ -95,6 +92,9 @@ class FrontendController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $category = ProjectCategory::find($id);
+        $category->delete();
+        return redirect()->route('admin.category.show')->with('message', 'Category deleted successfully.');
     }
 }

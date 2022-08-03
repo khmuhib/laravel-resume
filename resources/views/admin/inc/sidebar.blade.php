@@ -105,7 +105,8 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Experience</span>
                 </a>
-                <div id="experience" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="experience" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Experience section:</h6>
                         <a class="collapse-item" href="{{ route('admin.experience.show') }}">Show Experience</a>
@@ -122,9 +123,13 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Projects</span>
                 </a>
-                <div id="project" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="project" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Project section:</h6>
+                        <a class="collapse-item" href="{{ route('admin.category.show') }}">Show Project
+                            Category</a>
+                        <a class="collapse-item" href="{{ route('admin.category.create') }}">Add Project Category</a>
                         <a class="collapse-item" href="{{ route('admin.project.show') }}">Show Project</a>
                         <a class="collapse-item" href="{{ route('admin.project.create') }}">Add Project</a>
                         {{-- <a class="collapse-item" href="utilities-animation.html">ShowDescription </a>
