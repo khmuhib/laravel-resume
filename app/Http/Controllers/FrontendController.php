@@ -37,9 +37,12 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $header = Header::all()->first();
+        $project = Project::find($id);
+        $socials = Social::all();
+        return view('frontend.portfolio', compact('project', 'header', 'socials'));
     }
 
     /**

@@ -32,9 +32,9 @@ use App\Http\Controllers\Admin\ProjectCategorySectionController;
 //     return view('frontend.index');
 // });
 
-Route::get('/portfolio', function () {
-    return view('frontend.portfolio_detail');
-});
+// Route::get('/portfolio', function () {
+//     return view('frontend.portfolio_detail');
+// });
 
 
 Auth::routes();
@@ -108,5 +108,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //frontend
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'index']);
+Route::get('/portfolio/{id}', [App\Http\Controllers\FrontendController::class, 'create']);
 
 
