@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\AboutSectionController;
 use App\Http\Controllers\Admin\SkillSectionController;
+use App\Http\Controllers\Admin\ContactSectionController;
 use App\Http\Controllers\Admin\ProjectSectionController;
 use App\Http\Controllers\Admin\EducationSectionController;
 use App\Http\Controllers\Admin\ExperienceSectionController;
@@ -99,6 +100,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/category/edit/{id}', [ProjectCategorySectionController::class, 'edit'])->name('admin.category.edit');
     Route::put('/category/edit/{id}', [ProjectCategorySectionController::class, 'update'])->name('admin.category.update');
     Route::get('/category/delete/{id}', [ProjectCategorySectionController::class, 'destroy'])->name('admin.category.delete');
+
+
+    Route::get('/contact/show', [ContactSectionController::class, 'index'])->name('admin.contact.show');
+    Route::get('/contact/create', [ContactSectionController::class, 'create'])->name('admin.contact.create');
+    Route::post('/contact/store', [ContactSectionController::class, 'store'])->name('admin.contact.store');
+    Route::get('/contact/edit/{id}', [ContactSectionController::class, 'edit'])->name('admin.contact.edit');
+    Route::put('/contact/update/{id}', [ContactSectionController::class, 'update'])->name('admin.contact.update');
+    Route::get('/contact/delete/{id}', [ContactSectionController::class, 'destroy'])->name('admin.contact.delete');
 });
 
 Auth::routes();

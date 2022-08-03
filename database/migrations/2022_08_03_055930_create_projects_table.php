@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->integer('category_id')->unsigned();
-            $table->index('category_id');
+            $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('project_categories')->onDelete('cascade');
             $table->string('client');
             $table->string('project_date');

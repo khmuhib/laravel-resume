@@ -1,19 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
-use App\Models\Skill;
-use App\Models\Header;
-use App\Models\Social;
 use App\Models\Contact;
-use App\Models\Project;
-use App\Models\Education;
-use App\Models\Experience;
 use Illuminate\Http\Request;
-use App\Models\ProjectCategory;
+use App\Http\Controllers\Controller;
 
-class FrontendController extends Controller
+class ContactSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,16 +15,8 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $header = Header::all()->first();
-        $socials = Social::all();
-        $about = About::all()->first();
-        $skills = Skill::all();
-        $educations = Education::all();
-        $experiences = Experience::all();
-        $categories = ProjectCategory::all();
-        $projects = Project::all();
-        $contact = Contact::all()->first();
-        return view('frontend.index' , compact('header', 'socials', 'about', 'skills', 'educations', 'experiences', 'categories', 'projects', 'contact'));
+        $contact = Contact::first();
+        return view('admin.contact.index', compact('contact'));
     }
 
     /**
@@ -39,12 +24,9 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $header = Header::all()->first();
-        $project = Project::find($id);
-        $socials = Social::all();
-        return view('frontend.portfolio', compact('project', 'header', 'socials'));
+        return view('admin.contact.create');
     }
 
     /**
@@ -55,7 +37,14 @@ class FrontendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact = new Contact;
+        $contact->location = $request->location;
+        $contact->email = $request->email;
+        $contact->contact = $request->contact;
+        $contact->map = $request->map;
+        $contact->save();
+        return redirect()->back()->with('message', 'Contact Section Created Successfully');
+        
     }
 
     /**
@@ -77,7 +66,8 @@ class FrontendController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact = Contact::find($id);
+        return view('admin.contact.edit', compact('contact'));
     }
 
     /**
@@ -89,7 +79,13 @@ class FrontendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->location = $request->location;
+        $contact->email = $request->email;
+        $contact->contact = $request->contact;
+        $contact->map = $request->map;
+        $contact->update();
+        return redirect()->back()->with('message', 'Contact Section Updated Successfully');
     }
 
     /**

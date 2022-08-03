@@ -138,6 +138,24 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#contact"
+                    aria-expanded="true" aria-controls="contact">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Contact</span>
+                </a>
+                <div id="contact" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Contact section:</h6>
+                        <a class="collapse-item" href="{{ route('admin.contact.show') }}">Show Contact
+                            Category</a>
+                        <a class="collapse-item" href="{{ route('admin.contact.create') }}">Add Contact</a>
+                    </div>
+                </div>
+            </li>
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
