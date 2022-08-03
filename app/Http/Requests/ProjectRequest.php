@@ -30,9 +30,6 @@ class ProjectRequest extends FormRequest
             'client' => 'required|string|max:255',
             'project_date' => 'required|string|max:255',
             'project_url' => 'required|string|max:255',
-            'img_01' => 'required||dimensions:width=1288,height=600',
-            'img_02' => 'required||dimensions:width=1288,height=600',
-            'img_03' => 'required||dimensions:width=1288,height=600',
         ];
     }
 
@@ -51,12 +48,6 @@ class ProjectRequest extends FormRequest
             'client.required' => 'Client is required',
             'project_date.required' => 'Project date is required',
             'project_url.required' => 'Project url is required',
-            'img_01.required' => 'Image 1 is required',
-            'img_02.required' => 'Image 2 is required',
-            'img_03.required' => 'Image 3 is required',
-            'img_01.dimensions' => 'Image 1 must be at least 1288px wide and 600px tall',
-            'img_02.dimensions' => 'Image 2 must be at least 1288px wide and 600px tall',
-            'img_03.dimensions' => 'Image 3 must be at least 1288px wide and 600px tall',
 
         ];
     }

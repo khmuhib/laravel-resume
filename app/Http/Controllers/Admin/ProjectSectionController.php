@@ -8,6 +8,7 @@ use App\Models\ProjectCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProjectRequest;
+use Termwind\Components\Dd;
 
 class ProjectSectionController extends Controller
 {
@@ -41,6 +42,7 @@ class ProjectSectionController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $project = new Project;
         $project->title = $request->title;
         $project->description = $request->description;
@@ -52,24 +54,24 @@ class ProjectSectionController extends Controller
         {
             $file = $request->file('img_01');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('uploads/project/img', $filename);
+            $filename = time().rand(1000, 9999).'.'.$extention;
+            $file->move('uploads/admin/project/img', $filename);
             $project->img_01 = $filename;
         }
         if($request->hasfile('img_02'))
         {
             $file = $request->file('img_02');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('uploads/project/img', $filename);
+            $filename = time().rand(1000, 9999).'.'.$extention;
+            $file->move('uploads/admin/project/img', $filename);
             $project->img_02 = $filename;
         }
         if($request->hasfile('img_03'))
         {
             $file = $request->file('img_03');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('uploads/project/img', $filename);
+            $filename = time().rand(1000, 9999).'.'.$extention;
+            $file->move('uploads/admin/project/img', $filename);
             $project->img_03 = $filename;
         }
         $project->save();
@@ -125,8 +127,8 @@ class ProjectSectionController extends Controller
             }
             $file = $request->file('img_01');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('uploads/project/img', $filename);
+            $filename = time().rand(1000, 9999).'.'.$extention;
+            $file->move('uploads/admin/project/img', $filename);
             $project->img_01 = $filename;
         }
         if($request->hasfile('img_02'))
@@ -137,8 +139,8 @@ class ProjectSectionController extends Controller
             }
             $file = $request->file('img_02');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('uploads/project/img', $filename);
+            $filename = time().rand(1000, 9999).'.'.$extention;
+            $file->move('uploads/admin/project/img', $filename);
             $project->img_02 = $filename;
         }
         if($request->hasfile('img_03'))
@@ -149,8 +151,8 @@ class ProjectSectionController extends Controller
             }
             $file = $request->file('img_03');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('uploads/project/img', $filename);
+            $filename = time().rand(1000, 9999).'.'.$extention;
+            $file->move('uploads/admin/project/img', $filename);
             $project->img_03 = $filename;
         }
         $project->save();
@@ -168,6 +170,20 @@ class ProjectSectionController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
+
+        $destinationImg01 = 'uploads/admin/project/img/'.$project->img_01;
+        $destinationImg02 = 'uploads/admin/project/img/'.$project->img_02;
+        $destinationImg03 = 'uploads/admin/project/img/'.$project->img_03;
+
+        if(File::exists($destinationImg01)){
+            File::delete($destinationImg01);
+        }
+        if(File::exists($destinationImg02)){
+            File::delete($destinationImg02);
+        }
+        if(File::exists($destinationImg03)){
+            File::delete($destinationImg03);
+        }
         $project->delete();
         return redirect()->route('admin.project.show')->with('message', 'Project deleted successfully');
     }

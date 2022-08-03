@@ -281,10 +281,12 @@
                 @foreach ($projects as $project)
                     <div class="col-lg-4 col-md-6 portfolio-item {{ $project->category->category }}">
                         <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                            <img src="{{ asset('uploads/admin/project/img/' . $project->img_01) }}" class="img-fluid"
+                                alt="">
                             <div class="portfolio-links">
-                                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                                    class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                                <a href="{{ url('uploads/admin/project/img/' . $project->img_01) }}"
+                                    data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i
+                                        class="bx bx-plus"></i></a>
                                 <a href="{{ url('/portfolio/' . $project->id) }}" title="More Details"><i
                                         class="bx bx-link"></i></a>
                             </div>

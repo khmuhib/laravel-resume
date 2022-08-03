@@ -51,7 +51,7 @@ class HomeSectionController extends Controller
         {
             $file = $request->file('bg_img');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $filename = time().rand(1000, 9999).'.'.$extention;
             $file->move('uploads/admin/header/img', $filename);
             $header->bg_img = $filename;
         }
@@ -59,7 +59,7 @@ class HomeSectionController extends Controller
         {
             $file = $request->file('profile_img');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $filename = time().rand(1000, 9999).'.'.$extention;
             $file->move('uploads/admin/header/img', $filename);
             $header->profile_img = $filename;
         }
@@ -115,7 +115,7 @@ class HomeSectionController extends Controller
             }
             $file = $request->file('bg_img');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $filename = time().rand(1000, 9999).'.'.$extention;
             $file->move('uploads/admin/header/img', $filename);
             $header->bg_img = $filename;
         }
@@ -127,7 +127,7 @@ class HomeSectionController extends Controller
             }
             $file = $request->file('profile_img');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $filename = time().rand(1000, 9999).'.'.$extention;
             $file->move('uploads/admin/header/img', $filename);
             $header->profile_img = $filename;
         }

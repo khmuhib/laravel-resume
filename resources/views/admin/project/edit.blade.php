@@ -66,19 +66,22 @@
                 <div class="form-group">
                     <label>Image 01 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 01" name="img_01">
-                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_01) }}" alt="asda"> <br>
+                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_01) }}" alt="asda"
+                        height="150" width="150" class="img-thumbnail my-2"> <br>
                     <span class="text-danger">{{ $errors->first('img_01') }}</span>
                 </div>
                 <div class="form-group">
                     <label>Image 02 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 02" name="img_02">
-                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_02) }}" alt="asda"> <br>
+                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_02) }}" alt="asda"
+                        height="150" width="150" class="img-thumbnail my-2"> <br>
                     <span class="text-danger">{{ $errors->first('img_02') }}</span>
                 </div>
                 <div class="form-group">
                     <label>Image 03 </label>
                     <input type="file" class="form-control" placeholder="Portfolio Image 03" name="img_03">
-                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_03) }}" alt="asda"> <br>
+                    <img src="{{ asset('uploads/admin/project/img/' . $project->img_03) }}" alt="asda"
+                        height="150" width="150" class="img-thumbnail my-2"> <br>
                     <span class="text-danger">{{ $errors->first('img_03') }}</span>
                 </div>
 

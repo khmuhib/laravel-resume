@@ -62,7 +62,8 @@
                 </div>
                 <div class="form-group">
                     <label>Your Profile Image</label>
-                    <input type="file" class="form-control" placeholder="Profile Image" name="profile_img">
+                    <input type="file" class="form-control" placeholder="Profile Image" name="profile_img"
+                        value="{{ $header->profile_img }}">
 
                     <img src="{{ asset('uploads/admin/header/img/' . $header->profile_img) }}" alt="profile_img"
                         style="width: 150px; height: 150px;" class="img-thumbnail my-2">
@@ -72,7 +73,8 @@
                 </div>
                 <div class="form-group">
                     <label>Home Backgroud Image</label>
-                    <input type="file" class="form-control" placeholder="Background Image" name="bg_img">
+                    <input type="file" class="form-control" placeholder="Background Image" name="bg_img"
+                        value="{{ $header->bg_img }}">
 
                     <img src="{{ asset('uploads/admin/header/img/' . $header->bg_img) }}" alt="profile_img"
                         style="width: 150px; height: 150px;" class="img-thumbnail my-2">

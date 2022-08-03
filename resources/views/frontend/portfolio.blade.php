@@ -26,17 +26,16 @@
                 <div class="col-lg-8">
                     <div class="portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
-
                             <div class="swiper-slide">
-                                <img src="{{ asset('assets/img/portfolio/portfolio-details-1.jpg') }}" alt="">
+                                <img src="{{ asset('uploads/admin/project/img/' . $project->img_01) }}" alt="">
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="{{ asset('assets/img/portfolio/portfolio-details-2.jpg') }}" alt="">
+                                <img src="{{ asset('uploads/admin/project/img/' . $project->img_02) }}" alt="">
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="{{ asset('assets/img/portfolio/portfolio-details-3.jpg') }}" alt="">
+                                <img src="{{ asset('uploads/admin/project/img/' . $project->img_03) }}" alt="">
                             </div>
 
 
