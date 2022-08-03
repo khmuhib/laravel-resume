@@ -49,7 +49,7 @@
             <div class="profile">
                 <img src="{{ asset('uploads/admin/header/img/' . $header->profile_img) }}" alt="kh Muhib" height="100px"
                     width="100px" class="img-fluid rounded-circle">
-                <h1 class="text-light"><a href="index.html">{{ $header->name }}</a></h1>
+                <h1 class="text-light"><a href="{{ url('/') }}">{{ $header->name }}</a></h1>
                 <div class="social-links mt-3 text-center">
                     @foreach ($socials as $social)
                         @if ($social->status == 1)
